@@ -1,3 +1,6 @@
+/*
+    Author: Siddharth Gandhi
+*/
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -120,19 +123,6 @@ vector<vector<int>> aStarEnhanced(int startRow, int startCol, int endRow,
         if (curPt == endPt)
         {
             path.push_back({endPt.x, endPt.y});
-            while (true)
-            {
-                // cout << path << endl;
-                NodeInfo *prevNodeInfo = curNodeInfo->prevNodeInfo;
-                if (prevNodeInfo == nullptr)
-                {
-                    break;
-                }
-
-                // TODO: a linked list style structure [x]
-                path.push_back({prevNodeInfo->curPt.x, prevNodeInfo->curPt.y});
-                curNodeInfo = prevNodeInfo;
-            }
             break;
         }
         vector<Coordinate> neighbours = toTarget ? getParallelNeighbours(curPt) : getNeighbours(curPt);
